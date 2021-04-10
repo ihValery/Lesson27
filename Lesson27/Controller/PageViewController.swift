@@ -9,12 +9,12 @@ import UIKit
 
 class PageViewController: UIPageViewController {
 
-    let presentText = ["Хочешь покидать мячик? Но одному скучно?",
+    private let presentText = ["Хочешь покидать мячик? Но одному скучно?",
                        "Все твои знакомые сидят в инстаграмме и танках?",
                        "Все что они знают о мячах - \"Они круглые\"",
                        "Найди себе партнера для любой игры!"]
     
-    let emojiCollection = ["🏈", "📱", "🏀", "🏸"]
+    private let emojiCollection = ["🏈", "📱", "🏀", "🏸"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,22 +27,19 @@ class PageViewController: UIPageViewController {
     }
     
     func showViewControllerAtIndex(_ index: Int) -> ContentViewController? {
-        
+
         guard index >= 0 else { return nil }
-        guard index < presentText.count else {
-            let userDefaults = UserDefaults.standard
-            userDefaults.set(true, forKey: "presentationWasViewed")
-//            dismiss(animated: true, completion: nil)
-            return nil
-        }
-        
+        guard index < presentText.count else { return nil }
+
         guard let ContentVC = storyboard?.instantiateViewController(withIdentifier: "ContentViewController") as? ContentViewController else { return nil }
-        
+
         ContentVC.presentText = presentText[index]
         ContentVC.emoji = emojiCollection[index]
         ContentVC.numberOfPage = presentText.count
         ContentVC.currentPage = index
-        
+        ContentVC.boolisOn = index + 1 == presentText.count ? false : true
+        ContentVC.skipLabelOnOff = index + 1 == presentText.count ? true : false
+
         return ContentVC
     }
 }

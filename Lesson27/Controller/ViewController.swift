@@ -13,18 +13,28 @@ class ViewController: UIViewController {
         willSet {
             newValue.text = "Стартовая страница"
             newValue.font = .systemFont(ofSize: 30)
-            newValue.textColor = .gray
+            newValue.textColor = .white
         }
     }
-    
     @IBOutlet private var startPresentationLabel: UIButton! {
         willSet {
             newValue.setTitle("Старт презентации", for: .normal)
-            newValue.setTitleColor(.gray, for: .normal)
+            newValue.setTitleColor(.white, for: .normal)
             newValue.layer.cornerRadius = 13
             newValue.titleLabel?.font = .systemFont(ofSize: 30)
         }
     }
+    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        startPresentation()
+//    }
+  
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        startPresentation()
+//    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
