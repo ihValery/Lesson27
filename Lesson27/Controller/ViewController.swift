@@ -9,11 +9,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        startPresentation()
     }
-
-
+    
+    func startPresentation() {
+        if let pageVC = storyboard?.instantiateViewController(withIdentifier: "PageViewController") as? PageViewController {
+            present(pageVC, animated: true, completion: nil)
+        }
+    }
 }
-

@@ -9,9 +9,18 @@ import UIKit
 
 class ContentViewController: UIViewController {
 
-    @IBOutlet weak var presentTextLabel: UILabel!
-    @IBOutlet weak var emojiLabel: UILabel!
-    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet private var presentTextLabel: UILabel! {
+        willSet {
+            newValue.numberOfLines = 0
+            newValue.font = UIFont.systemFont(ofSize: 30)
+        }
+    }
+    @IBOutlet private var emojiLabel: UILabel! {
+        willSet {
+            newValue.font = UIFont.systemFont(ofSize: 200)
+        }
+    }
+    @IBOutlet private var pageControl: UIPageControl!
     
     var presentText = ""
     var emoji = ""
@@ -25,5 +34,6 @@ class ContentViewController: UIViewController {
         emojiLabel.text = emoji
         pageControl.currentPage = currenrPage
         pageControl.numberOfPages = numberOfPage
+
     }
 }
