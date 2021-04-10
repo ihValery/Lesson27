@@ -15,16 +15,18 @@ class ContentViewController: UIViewController {
             newValue.font = UIFont.systemFont(ofSize: 30)
         }
     }
+    
     @IBOutlet private var emojiLabel: UILabel! {
         willSet {
             newValue.font = UIFont.systemFont(ofSize: 200)
         }
     }
+    
     @IBOutlet private var pageControl: UIPageControl!
     
     var presentText = ""
     var emoji = ""
-    var currenrPage = 0
+    var currentPage = 0
     var numberOfPage = 0
     
     override func viewDidLoad() {
@@ -32,8 +34,8 @@ class ContentViewController: UIViewController {
 
         presentTextLabel.text = presentText
         emojiLabel.text = emoji
-        pageControl.currentPage = currenrPage
+        //Важно сразу количество страниц, потом текущую страницу
         pageControl.numberOfPages = numberOfPage
-
+        pageControl.currentPage = currentPage
     }
 }
