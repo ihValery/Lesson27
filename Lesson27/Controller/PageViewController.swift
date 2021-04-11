@@ -1,18 +1,11 @@
-//
-//  PageViewController.swift
-//  Lesson27
-//
-//  Created by Валерий Игнатьев on 10.04.21.
-//
-
 import UIKit
 
 class PageViewController: UIPageViewController {
 
     private let presentText = ["Хочешь покидать мячик? Но одному скучно?",
-                       "Все твои знакомые сидят в инстаграмме и танках?",
-                       "Все что они знают о мячах - \"Они круглые\"",
-                       "Найди себе партнера для любой игры!"]
+                               "Все твои знакомые сидят в инстаграмме и танках?",
+                               "Все что они знают о мячах - \"Они круглые\"",
+                               "Найди себе партнера для любой игры!"]
     
     private let emojiCollection = ["🏈", "📱", "🏀", "🏸"]
     
@@ -26,7 +19,7 @@ class PageViewController: UIPageViewController {
         }
     }
     
-    func showViewControllerAtIndex(_ index: Int) -> ContentViewController? {
+    private func showViewControllerAtIndex(_ index: Int) -> ContentViewController? {
 
         guard index >= 0 else { return nil }
         guard index < presentText.count else { return nil }

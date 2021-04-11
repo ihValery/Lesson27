@@ -1,38 +1,11 @@
-//
-//  ContentViewController.swift
-//  Lesson27
-//
-//  Created by Валерий Игнатьев on 10.04.21.
-//
-
 import UIKit
 
 class ContentViewController: UIViewController {
 
-    @IBOutlet private var presentTextLabel: UILabel! {
-        willSet {
-            newValue.numberOfLines = 0
-            newValue.font = .systemFont(ofSize: 30)
-        }
-    }
-    @IBOutlet private var emojiLabel: UILabel! {
-        willSet {
-            newValue.font = .systemFont(ofSize: 200)
-        }
-    }
-    @IBOutlet private var switchPresentationWasViewed: UISwitch! {
-        willSet {
-            newValue.isOn = false
-            newValue.onTintColor = .gray
-        }
-    }
-    @IBOutlet private var startUsing: UIButton! {
-        willSet {
-            newValue.setTitle("Старт", for: .normal)
-            newValue.setTitleColor(.white, for: .normal)
-            newValue.titleLabel?.font = .systemFont(ofSize: 30)
-        }
-    }
+    @IBOutlet private var presentTextLabel: UILabel!
+    @IBOutlet private var emojiLabel: UILabel!
+    @IBOutlet private var switchPresentationWasViewed: UISwitch!
+    @IBOutlet private var startUsing: UIButton!
     @IBOutlet private var pageControl: UIPageControl!
     @IBOutlet private var skipLabel: UIButton!
     
@@ -48,9 +21,9 @@ class ContentViewController: UIViewController {
  
         presentTextLabel.text = presentText
         emojiLabel.text = emoji
-        //Важно сразу количество страниц, потом текущую страницу
-        pageControl.numberOfPages = numberOfPage
+        pageControl.numberOfPages = numberOfPage            //Важно сразу количество страниц, а потом текущую страницу
         pageControl.currentPage = currentPage
+        
         switchPresentationWasViewed.isHidden = boolisOn
         startUsing.isHidden = boolisOn
         skipLabel.isHidden = skipLabelOnOff
@@ -66,14 +39,17 @@ class ContentViewController: UIViewController {
     }
     
     @IBAction private func startUsingAction() {
+        guard let viewController = storyboard?.instantiateViewController(withIdentifier: "ViewController") as? ViewController else { return }
+//        viewController.notShowAgainInThisScene = true
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func skupAction() {
+        
 //        guard let pageVC = storyboard?.instantiateViewController(withIdentifier: "PageViewController") as? PageViewController else { return }
-//        
+//
 //        pageVC.showViewControllerAtIndex(numberOfPage)
 //        pageVC.
-//        pageControl.currentPage = numberOfPage
+ 
     }
 }
