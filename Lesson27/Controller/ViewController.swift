@@ -6,11 +6,15 @@ class ViewController: UIViewController {
     @IBOutlet private var startPresentationLabel: UIButton!
     
     var notShowAgainInThisScene = false
+    var showingPresentationOnceAtStartup = false
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       
-        startPresentation()
+
+        if !showingPresentationOnceAtStartup {
+            startPresentation()
+            showingPresentationOnceAtStartup = true
+        }
     }
     
     @IBAction private func startPresentationAction() {
@@ -30,7 +34,5 @@ class ViewController: UIViewController {
                 present(pageVC, animated: true, completion: nil)
             }
         }
-        
-      
     }
 }
