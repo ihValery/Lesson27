@@ -21,7 +21,7 @@ class ContentViewController: UIViewController {
  
         presentTextLabel.text = presentText
         emojiLabel.text = emoji
-        pageControl.numberOfPages = numberOfPage            //Важно сразу количество страниц, а потом текущую страницу
+        pageControl.numberOfPages = numberOfPage    //Важно сразу количество страниц, а потом текущую страницу
         pageControl.currentPage = currentPage
         
         switchPresentationWasViewed.isHidden = boolisOn
@@ -30,30 +30,22 @@ class ContentViewController: UIViewController {
     }
     
     @IBAction private func switchPresentationWasViewedAction(_ sender: UISwitch) {
-        let userDefaults = UserDefaults.standard
-        
-        switch sender.isOn {
-            case true: userDefaults.set(true, forKey: "presentationWasViewed")
-            case false: userDefaults.set(false, forKey: "presentationWasViewed")
-        }
+//        let userDefaults = UserDefaults.standard
+//
+//        switch sender.isOn {
+//            case true: userDefaults.set(true, forKey: "presentationWasViewed")
+//            case false: userDefaults.set(false, forKey: "presentationWasViewed")
+//        }
     }
     
     @IBAction private func startUsingAction() {
-        guard let viewController = storyboard?.instantiateViewController(withIdentifier: "ViewController") as? ViewController else { return }
-//        viewController.notShowAgainInThisScene = true
+        if switchPresentationWasViewed.isOn {
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(true, forKey: "presentationWasViewed")
+        }
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func skupAction() {
-        
-//        guard let pageVC = storyboard?.instantiateViewController(withIdentifier: "PageViewController") as? PageViewController else { return }
-//        
-        
-//
-//        pageVC.showViewControllerAtIndex(numberOfPage)
-//        pageVC.
- 
-        
-        
     }
 }
