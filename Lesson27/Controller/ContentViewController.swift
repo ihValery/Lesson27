@@ -26,7 +26,7 @@ class ContentViewController: UIViewController {
         
         switchPresentationWasViewed.isHidden = boolisOn
         startUsing.isHidden = boolisOn
-        skipLabel.isHidden = skipLabelOnOff
+//        skipLabel.isHidden = skipLabelOnOff
     }
     
     @IBAction private func switchPresentationWasViewedAction(_ sender: UISwitch) {
@@ -47,9 +47,13 @@ class ContentViewController: UIViewController {
     @IBAction func skupAction() {
         
 //        guard let pageVC = storyboard?.instantiateViewController(withIdentifier: "PageViewController") as? PageViewController else { return }
+//        
+        
 //
 //        pageVC.showViewControllerAtIndex(numberOfPage)
 //        pageVC.
  
+        
+        
     }
 }
