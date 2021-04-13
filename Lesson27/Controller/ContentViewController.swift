@@ -26,16 +26,7 @@ class ContentViewController: UIViewController {
         
         switchPresentationWasViewed.isHidden = boolisOn
         startUsing.isHidden = boolisOn
-//        skipLabel.isHidden = skipLabelOnOff
-    }
-    
-    @IBAction private func switchPresentationWasViewedAction(_ sender: UISwitch) {
-//        let userDefaults = UserDefaults.standard
-//
-//        switch sender.isOn {
-//            case true: userDefaults.set(true, forKey: "presentationWasViewed")
-//            case false: userDefaults.set(false, forKey: "presentationWasViewed")
-//        }
+        skipLabel.isHidden = skipLabelOnOff
     }
     
     @IBAction private func startUsingAction() {
@@ -44,8 +35,5 @@ class ContentViewController: UIViewController {
             userDefaults.set(true, forKey: "presentationWasViewed")
         }
         dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func skupAction() {
     }
 }
